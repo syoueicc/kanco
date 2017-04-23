@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const crypto = require('crypto');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
@@ -16,7 +17,9 @@ router.get('/', function (req, res, next) {
     const nonce = params.nonce;
     const echostr = params.echostr;
     const tmpArr = [TOKEN, timestamp, nonce];
-    const tmpStr = new Hashes.SHA1().hex(tmpArr.sort().join(''));
+    const hash = crypto.createHash('sha1');
+    const tmpStr = hash.update(tmpArr.sort().join('')).digest('hex');
+    console.log(tmpStr, signature, '////////////////')
     if (tmpStr === signature) {
       return echostr;
     } else {
