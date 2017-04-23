@@ -22,7 +22,6 @@ router.get('/', function (req, res, next) {
     const tmpArr = [TOKEN, timestamp, nonce];
     const hash = crypto.createHash('sha1');
     const tmpStr = hash.update(tmpArr.sort().join('')).digest('hex');
-    console.log(tmpStr, signature, '////////////////')
     if (tmpStr === signature) {
       res.send(echostr);
     } else {
