@@ -9,7 +9,7 @@ var bodyParser = require('body-parser');
  * 自个路由
  */
 var index = require('./routes/index');
-var users = require('./routes/users');
+var weixin = require('./routes/weixin');
 
 var app = express();
 
@@ -25,14 +25,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var weixinConfig = {
-  id: 'wx718b667be9b708b2',
-  secret: 'd61cc9e73723f413ce3af3d2ebfe202a',
-  token: 'CAIDAMAODEXIAODANGAO'
-};
-
 app.use('/', index);
-app.use('/users', users);
+app.use('/wxapi', weixin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
