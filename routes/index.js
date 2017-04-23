@@ -21,11 +21,11 @@ router.get('/', function (req, res, next) {
     const tmpStr = hash.update(tmpArr.sort().join('')).digest('hex');
     console.log(tmpStr, signature, '////////////////')
     if (tmpStr === signature) {
-      return echostr;
+      res.send(echostr);
     } else {
-      return false;
+      res.send(false);
     }
-  } catch (e) { return e; }
+  } catch (e) { res.send(e); }
 });
 
 module.exports = router;
