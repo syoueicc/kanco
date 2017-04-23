@@ -7,8 +7,14 @@ router.get('/', function (req, res, next) {
   const weixinConfig = {
     id: 'wx718b667be9b708b2',
     secret: 'd61cc9e73723f413ce3af3d2ebfe202a',
-    token: 'CAIDAMAODEXIAODANGAO'
+    token: 'CAIDAMAODEXIAODANGAO',
+    encodingAESKey: 'aawOE2hSzsniM43AAU2WsZbEEWRMJEzSe33Dy0Jcy8a',
+    checkSignature: true
   };
+})
+.get('/wxapi', configWXServer);
+
+function configWXServer(req, res, next) {
   try {
     const params = req.query;
     const TOKEN = weixinConfig.token;
@@ -26,6 +32,6 @@ router.get('/', function (req, res, next) {
       res.send(false);
     }
   } catch (e) { res.send(e); }
-});
+}
 
 module.exports = router;
