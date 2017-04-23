@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
     checkSignature: true
   };
 })
-.get('/wxapi', configWXServer);
+.get('wxapi', configWXServer);
 
 function configWXServer(req, res, next) {
   try {
