@@ -3,7 +3,7 @@ const router = express.Router();
 const crypto = require('crypto');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
+router.get('/wxapi', function (req, res, next) {
   const weixinConfig = {
     id: 'wx718b667be9b708b2',
     secret: 'd61cc9e73723f413ce3af3d2ebfe202a',
@@ -11,8 +11,6 @@ router.get('/', function (req, res, next) {
     encodingAESKey: 'aawOE2hSzsniM43AAU2WsZbEEWRMJEzSe33Dy0Jcy8a',
     checkSignature: true
   };
-})
-.get('/wxapi', function (req, res, next) {
   try {
     const params = req.query;
     const TOKEN = weixinConfig.token;
