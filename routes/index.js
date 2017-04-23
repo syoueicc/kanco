@@ -12,9 +12,7 @@ router.get('/', function (req, res, next) {
     checkSignature: true
   };
 })
-.get('wxapi', configWXServer);
-
-function configWXServer(req, res, next) {
+.get('/wxapi', function (req, res, next) {
   try {
     const params = req.query;
     const TOKEN = weixinConfig.token;
@@ -32,6 +30,7 @@ function configWXServer(req, res, next) {
       res.send(false);
     }
   } catch (e) { res.send(e); }
-}
+});
+
 
 module.exports = router;
