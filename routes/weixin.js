@@ -11,7 +11,7 @@ module.exports = function (app) {
     secret: 'd61cc9e73723f413ce3af3d2ebfe202a',
     token: 'CAIDAMAODEXIAODANGAO',
     encodingAESKey: 'aawOE2hSzsniM43AAU2WsZbEEWRMJEzSe33Dy0Jcy8a',
-    checkSignature: false
+    checkSignature: true
   };
 
   const api = new WechatAPI(weixinConfig.appid, weixinConfig.secret);
