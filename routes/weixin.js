@@ -19,7 +19,7 @@ module.exports = function (app) {
   app.use('/wxapi', wechat(weixinConfig)
     .text(function(message, req, res, next) {
       console.log(message);
-      res.reply("hehe")
+      res.reply("康康不明白客人在说什么哦，不如点击商城买一波蛋糕吧~")
     })
     .event(function(message, req, res, next) {
       switch(message.Event) {
@@ -45,10 +45,10 @@ module.exports = function (app) {
           //}
           break;
         case "unsubscribe":
-          res.reply("event unsubscribe");
+          //res.reply("event unsubscribe");
           break;
         case "LOCATION":
-          res.reply("event LOCATION");
+          res.reply("康康不明白客人在说什么哦，不如点击商城买一波蛋糕吧~");
           break;
         case "CLICK":
           //res.reply("event caidan", _.get(message, 'EventKey'));

@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var weixin = require('./routes/weixin');
+var mall = require('./routes/mall');
 
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 // app.use('/wxapi', weixin);
+app.use('/mall', mall);
 weixin(app);
 
 // catch 404 and forward to error handler
