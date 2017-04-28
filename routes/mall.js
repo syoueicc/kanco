@@ -1,9 +1,14 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('lodash');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+module.exports = function(api) {
+  router.get('/', function(req, res, next) {
+    api.getGoodsByStatus(1, (err, result)=>{
+      res.render('index', { goods: _.get(result, 'products_info')});
+    })
+    
+  });
 
-module.exports = router;
+  return router;
+}

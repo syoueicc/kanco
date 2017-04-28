@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 // app.use('/wxapi', weixin);
-app.use('/mall', mall);
 weixin(app);
 
 // catch 404 and forward to error handler
